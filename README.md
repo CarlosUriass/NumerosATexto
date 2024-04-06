@@ -22,5 +22,5 @@ La función numero_a_texto toma un número como una cadena y devuelve su represe
 
 ## Errores a corregir ❗
 
-Si encuentras algún error, por favor, háznoslo saber abriendo un problema en el repositorio. Uno de los errores conocidos es cuando se intenta ejecutar con el número "1", donde el output esperado es "Uno" pero el output real es "Un".
+Si encuentras algún error, por favor, háznoslo saber abriendo un problema en el repositorio. 
 
