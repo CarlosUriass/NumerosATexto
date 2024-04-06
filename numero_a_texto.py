@@ -65,7 +65,10 @@ def main(millones, centenas_millon, decenas_millon, millares, centenas, decenas,
             texto += " " + numeros_decenas_adicionales[decenas - 1]
 
     if unidades > 0:
-        texto += " " + numeros_unidades[unidades -1]
+        if unidades == 1:
+            texto +=   "un"
+        else:
+            texto += " " + numeros_unidades[unidades -1]
 
     return texto
 
