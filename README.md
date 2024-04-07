@@ -24,3 +24,11 @@ La función numero_a_texto toma un número como una cadena y devuelve su represe
 
 Si encuentras algún error, por favor, háznoslo saber abriendo un problema en el repositorio. 
 
+## Oportunidades de mejora y errores actuales 
+
+- Dado un input: "0.5" El output esperado seria "cero con cincuenta centavos"; sin embargo, la implementación actual da como salida "cero con cinco centavos"
+
+- Dar un argumento a la función para elegir la moneda de salida, es decir: MXN (Pesos) USD (Dolares), etx
+
+
+
