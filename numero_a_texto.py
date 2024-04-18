@@ -74,7 +74,7 @@ def main(millones, centenas_millon, decenas_millon, millares, centenas, decenas,
 
     return texto
 
-def convertir_a_texto(numero):
+def obtener_unidades(numero):
     """
     Convierte un número entero en su representación textual en español.
     
@@ -108,11 +108,11 @@ def separar_numeros(numero):
     """
     for i in range(len(numero)):
         if numero[i] == ".":
-            parte_entera = convertir_a_texto(numero[:i])
-            parte_decimal = convertir_a_texto(numero[i+1:])
+            parte_entera = obtener_unidades(numero[:i])
+            parte_decimal = obtener_unidades(numero[i+1:])
             return parte_entera + " pesos con" + parte_decimal + " centavos"
         
-    return convertir_a_texto(numero) + " pesos"
+    return obtener_unidades(numero) + " pesos"
 
 def numero_a_texto(numero):
     """
@@ -125,6 +125,3 @@ def numero_a_texto(numero):
     - texto (str): Representación textual del número.
     """
     return separar_numeros(numero)
-
-
-print(numero_a_texto("191.9"))
