@@ -97,6 +97,3 @@ def separar_numeros(numero):
 
 def num_txt(cifra):
     return separar_numeros(cifra)
-
-for i in range(0, 10000):
-    print(num_txt(str(i)))
