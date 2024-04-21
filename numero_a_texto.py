@@ -1,3 +1,5 @@
+import re
+
 def numeros_a_texto(numero):
     numeros_unidades = ["uno", "dos", "tres", "cuatro", "cinco", "seis", "siete", "ocho", "nueve"]
     numeros_decenas = ["diez", "veinte", "treinta", "cuarenta", "cincuenta", "sesenta", "setenta", "ochenta", "noventa"]
@@ -24,12 +26,17 @@ def numeros_a_texto(numero):
             texto += especiales[unidades - 1] 
         elif decenas >= 1 and unidades > 5:
             texto += numeros_decenas_adicionales[decenas - 1] 
+        elif decenas >= 2 and unidades > 0:
+            texto += numeros_decenas_adicionales[decenas - 1]
         else:
-            texto += numeros_decenas[decenas - 1]
+            texto += numeros_decenas[decenas-1]
 
     if unidades > 0:
-        if decenas != 1:
-            texto += numeros_unidades[unidades - 1] 
+        if unidades == 1:
+            texto += "un"
+        else:
+            texto += numeros_unidades[unidades -1]
+        
 
     return texto
 
@@ -83,12 +90,13 @@ def separar_numeros(numero):
         if numero[i] == ".":
             parte_entera = isZero(numero[:i])
             parte_decimal = addzero(numero[i+1:])
-            return parte_entera + " pesos con" + parte_decimal + " centavos"
+            return re.sub(' +', ' ',(parte_entera + " pesos con" + parte_decimal + " centavos").strip())
         
-    return isZero(numero) + " pesos"
+    return re.sub(' +', ' ',(isZero(numero) + " pesos").strip())
 
 
 def num_txt(cifra):
     return separar_numeros(cifra)
 
-print(num_txt("100010001.01"))
+for i in range(0, 10000):
+    print(num_txt(str(i)))
