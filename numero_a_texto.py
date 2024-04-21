@@ -34,6 +34,8 @@ def numeros_a_texto(numero):
     if unidades > 0:
        if centenas == 1 and decenas == 0 and unidades == 0:
         texto += ""
+       elif centenas >= 0 and decenas >= 0 and unidades == 1:
+           texto += "un"
        else:
            texto += numeros_unidades[unidades -1]
         
