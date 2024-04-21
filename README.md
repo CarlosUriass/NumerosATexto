@@ -5,9 +5,9 @@ NumerosATexto es una pequeña biblioteca escrita en Python que convierte número
 ## Uso 🖥️
 
 ```python
-from numero_a_texto import numero_a_texto
+from numero_a_texto import num_txt
 
-print(numero_a_texto("12345"))  # Salida: "doce mil trescientos cuarenta y cinco pesos"
+print(num_txt("12345"))  # Salida: "doce mil trescientos cuarenta y cinco pesos"
 ```
 
 La función `numero_a_texto` toma un número como una cadena y devuelve su representación textual en español.
@@ -26,9 +26,9 @@ Si encuentras algún error, por favor, háznoslo saber abriendo un problema en e
 
 ## Oportunidades de mejora y errores actuales 
 
-- Dado un input: "0.5" El output esperado seria "cero con cincuenta centavos"; sin embargo, la implementación actual da como salida "cero con cinco centavos"
-
 - Dar un argumento a la función para elegir la moneda de salida, es decir: MXN (Pesos) USD (Dolares), etx
+
+- Espacio innesperado al llamar la funcion con un argumento centavos
 
 
 
