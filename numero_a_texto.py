@@ -20,12 +20,12 @@ def numeros_a_texto(numero):
             texto += numeros_centenas[centenas - 1] + " "
 
     if decenas > 0:
-        if decenas == 1 and unidades <= 5:
+        if decenas == 1 and unidades <= 5 and unidades > 0:
             texto += especiales[unidades - 1] 
-        elif decenas == 1 and unidades > 5:
+        elif decenas >= 1 and unidades > 5:
             texto += numeros_decenas_adicionales[decenas - 1] 
         else:
-            texto += numeros_decenas_adicionales[decenas - 1]
+            texto += numeros_decenas[decenas - 1]
 
     if unidades > 0:
         if decenas != 1:
@@ -44,16 +44,15 @@ def separar_en_tres(numero):
     if int(numero[:3]):
         millones = numeros_a_texto(numero[:3]) + " millones"
         if numero[:3] == "001":
-            millones = "un millón"
+            millones = "un millon"
 
     if int(numero[3:6]):
         millares = numeros_a_texto(numero[3:6]) + " mil"
 
     if int(numero[6:9]):
         unidades = numeros_a_texto(numero[6:9]) 
-
-    if millones == "" and millares == "" and unidades == "un":
-        unidades = "un"
+        if numero[6:9] == "001":
+            unidades = "un"
 
     return millones + " " + millares + " " + unidades
 
@@ -91,3 +90,5 @@ def separar_numeros(numero):
 
 def num_txt(cifra):
     return separar_numeros(cifra)
+
+print(num_txt("100010001.01"))
