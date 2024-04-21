@@ -32,10 +32,10 @@ def numeros_a_texto(numero):
             texto += numeros_decenas[decenas-1]
 
     if unidades > 0:
-        if unidades == 1:
-            texto += "un"
-        else:
-            texto += numeros_unidades[unidades -1]
+       if centenas == 1 and decenas == 0 and unidades == 0:
+        texto += ""
+       else:
+           texto += numeros_unidades[unidades -1]
         
 
     return texto
@@ -54,7 +54,10 @@ def separar_en_tres(numero):
             millones = "un millon"
 
     if int(numero[3:6]):
-        millares = numeros_a_texto(numero[3:6]) + " mil"
+        if numero[3:6] == "001":
+            millares = "mil"
+        else:
+            millares = numeros_a_texto(numero[3:6]) + " mil"
 
     if int(numero[6:9]):
         unidades = numeros_a_texto(numero[6:9]) 

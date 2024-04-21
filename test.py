@@ -12,6 +12,7 @@ class TestNumerosATexto(unittest.TestCase):
         self.assertEqual(num_txt("128234"), "ciento veintiocho mil doscientos treinta y cuatro pesos")
         self.assertEqual(num_txt("2"), "dos pesos")
         self.assertEqual(num_txt("1234653.23"), "un millon doscientos treinta y cuatro mil seiscientos cincuenta y tres pesos con veintitres centavos")
+        self.assertEqual(num_txt("1001234"), "un millon mil doscientos treinta y cuatro pesos")
 
 
 
