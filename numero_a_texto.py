@@ -90,6 +90,8 @@ def addzero(centavos):
 
 
 def separar_numeros(numero):
+
+    numero = str(numero)
   
     for i in range(len(numero)):
         if numero[i] == ".":
@@ -102,3 +104,6 @@ def separar_numeros(numero):
 
 def num_txt(cifra):
     return separar_numeros(cifra)
+
+
+print(num_txt(1))
