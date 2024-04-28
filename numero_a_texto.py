@@ -1,4 +1,5 @@
 import re
+from monedas import obtener_moneda, obtener_centavos
 
 def numeros_a_texto(numero):
     numeros_unidades = ["uno", "dos", "tres", "cuatro", "cinco", "seis", "siete", "ocho", "nueve"]
@@ -39,7 +40,6 @@ def numeros_a_texto(numero):
         else:
             texto += numeros_unidades[unidades -1]
        
-
     return texto
 
 
@@ -89,7 +89,7 @@ def addzero(centavos):
         return isZero(centavos) 
 
 
-def separar_numeros(numero):
+def separar_numeros(numero, moneda):
 
     numero = str(numero)
   
@@ -97,13 +97,11 @@ def separar_numeros(numero):
         if numero[i] == ".":
             parte_entera = isZero(numero[:i])
             parte_decimal = addzero(numero[i+1:])
-            return re.sub(' +', ' ',(parte_entera + " pesos con" + parte_decimal + " centavos").strip())
+            return re.sub(' +', ' ',(parte_entera + " " + obtener_moneda(moneda) +" con" + parte_decimal + " " + obtener_centavos(moneda)).strip())
         
-    return re.sub(' +', ' ',(isZero(numero) + " pesos").strip())
+        
+    return re.sub(' +', ' ',(isZero(numero) + " " + obtener_moneda(moneda)).strip())
 
 
-def num_txt(cifra):
-    return separar_numeros(cifra)
-
-
-print(num_txt(1))
+def num_txt(cifra, moneda):
+    return separar_numeros(cifra, moneda)
