@@ -24,11 +24,6 @@ La función numero_a_texto toma un número como una cadena y devuelve su represe
 
 Si encuentras algún error, por favor, háznoslo saber abriendo un problema en el repositorio. 
 
-## Oportunidades de mejora y errores actuales 
-
-- Dar un argumento a la función para elegir la moneda de salida, es decir: MXN (Pesos) USD (Dolares), etx
-
-- Espacio innesperado al llamar la funcion con un argumento centavos
 
 
 
