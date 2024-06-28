@@ -8,7 +8,7 @@ def numeros_a_texto(numero):
     especiales = ["once", "doce", "trece", "catorce", "quince"]
     numeros_decenas_adicionales = ["dieci", "veinti", "treinta y ", "cuarenta y ", "cincuenta y ", "sesenta y ", "setenta y ", "ochenta y ", "noventa y "]
    
-    numero = str(numero)
+    numero = str(numero).zfill(3)
 
     unidades = int(numero[-1])
     decenas = int(numero[-2])
@@ -53,7 +53,7 @@ def separar_en_tres(numero):
     if int(numero[:3]):
         millones = numeros_a_texto(numero[:3]) + " millones"
         if numero[:3] == "001":
-            millones = "un millon"
+            millones = "un millón"
 
     if int(numero[3:6]):
         if numero[3:6] == "001":
@@ -90,6 +90,10 @@ def addzero(centavos):
 
 
 def separar_numeros(numero, moneda):
+    negativo = False
+    if numero < 0:
+        negativo = True
+        numero = abs(numero)
 
     numero = str(numero)
   
@@ -97,10 +101,16 @@ def separar_numeros(numero, moneda):
         if numero[i] == ".":
             parte_entera = isZero(numero[:i])
             parte_decimal = addzero(numero[i+1:])
-            return re.sub(' +', ' ',(parte_entera + " " + obtener_moneda(moneda) +" con" + parte_decimal + " " + obtener_centavos(moneda)).strip())
+            texto = parte_entera + " " + obtener_moneda(moneda) + " con" + parte_decimal + " " + obtener_centavos(moneda)
+            if negativo:
+                texto = "menos " + texto
+            return re.sub(' +', ' ', texto.strip())
         
         
-    return re.sub(' +', ' ',(isZero(numero) + " " + obtener_moneda(moneda)).strip())
+    texto = isZero(numero) + " " + obtener_moneda(moneda)
+    if negativo:
+        texto = "menos " + texto
+    return re.sub(' +', ' ', texto.strip())
 
 
 def num_txt(cifra, moneda):
