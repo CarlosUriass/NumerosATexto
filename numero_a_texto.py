@@ -7,6 +7,7 @@ def numeros_a_texto(numero):
     numeros_centenas = ["cien", "doscientos", "trescientos", "cuatrocientos", "quinientos", "seiscientos", "setecientos", "ochocientos", "novecientos"]
     especiales = ["once", "doce", "trece", "catorce", "quince"]
     numeros_decenas_adicionales = ["dieci", "veinti", "treinta y ", "cuarenta y ", "cincuenta y ", "sesenta y ", "setenta y ", "ochenta y ", "noventa y "]
+
    
     numero = str(numero).zfill(3)
 
@@ -90,6 +91,9 @@ def addzero(centavos):
 
 
 def separar_numeros(numero, moneda):
+
+    numero = float(numero)
+
     negativo = False
     if numero < 0:
         negativo = True
